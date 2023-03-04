@@ -1,0 +1,12 @@
+.search-bar {
+    margin-top: 3rem;
+}
+.col-form-label {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-left: .5rem;
+}
+input {
+    width: 200px;
+    margin-left: -0.5rem;
+}

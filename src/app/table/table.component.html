@@ -1,0 +1,31 @@
+<div class="container">
+  <form class="search-bar">
+      <div class="mb-3 row">
+          <label for="table-filtering-search"  class="col-xs-3 col-sm-auto col-form-label">search:</label>
+          <div class="col-xs-3 col-sm-auto">
+              <input id="table-filtering-search" class="form-control" type="text" [formControl]="filter" />
+          </div>
+      </div>
+  </form>
+  <table class="table table-success table-striped-columns table-hover">
+    <thead>
+      <tr>
+        <th scope="col">name</th>
+        <th scope="col">symbol</th>
+        <th scope="col">sector</th>
+        <th scope="col">industry</th>
+        <th scope="col">location</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let company of companies$ | async; index as i">
+        <td>{{ company.name }}</td>
+        <td>{{ company.symbol }}</td>
+        <td>{{ company.sector }}</td>
+        <td>{{ company.industry }}</td>
+        <td>{{ company.location }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
