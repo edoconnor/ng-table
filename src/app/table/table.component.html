@@ -1,20 +1,44 @@
 <div class="container">
   <form class="search-bar">
-      <div class="mb-3 row">
-          <label for="table-filtering-search"  class="col-xs-3 col-sm-auto col-form-label">search:</label>
-          <div class="col-xs-3 col-sm-auto">
-              <input id="table-filtering-search" class="form-control" type="text" [formControl]="filter" />
-          </div>
+    <div class="mb-3 row">
+      <label
+        for="table-filtering-search"
+        class="col-xs-3 col-sm-auto col-form-label"
+        >search:</label
+      >
+      <div class="col-xs-3 col-sm-auto">
+        <input
+          id="table-filtering-search"
+          class="form-control"
+          type="text"
+          [formControl]="filter"
+        />
       </div>
+    </div>
   </form>
   <table class="table table-success table-striped-columns table-hover">
     <thead>
       <tr>
-        <th scope="col">name</th>
-        <th scope="col">symbol</th>
-        <th scope="col">sector</th>
-        <th scope="col">industry</th>
-        <th scope="col">location</th>
+        <th scope="col" (click)="onSort('name')">
+          name
+          <span *ngIf="currentSortColumn === 'name'" class="sort-icon" [ngClass]="currentSortDirection === 'asc' ? 'fa fa-sort-up' : 'fa fa-sort-down'"></span>
+        </th>
+        <th scope="col" (click)="onSort('symbol')">
+          symbol
+          <span *ngIf="currentSortColumn === 'symbol'" class="sort-icon" [ngClass]="currentSortDirection === 'asc' ? 'fa fa-sort-up' : 'fa fa-sort-down'"></span>
+        </th>
+        <th scope="col" (click)="onSort('sector')">
+          sector
+          <span *ngIf="currentSortColumn === 'sector'" class="sort-icon" [ngClass]="currentSortDirection === 'asc' ? 'fa fa-sort-up' : 'fa fa-sort-down'"></span>
+        </th>
+        <th scope="col" (click)="onSort('industry')">
+          industry
+          <span *ngIf="currentSortColumn === 'industry'" class="sort-icon" [ngClass]="currentSortDirection === 'asc' ? 'fa fa-sort-up' : 'fa fa-sort-down'"></span>
+        </th>
+        <th scope="col" (click)="onSort('location')">
+          location
+          <span *ngIf="currentSortColumn === 'location'" class="sort-icon" [ngClass]="currentSortDirection === 'asc' ? 'fa fa-sort-up' : 'fa fa-sort-down'"></span>
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -28,4 +52,3 @@
     </tbody>
   </table>
 </div>
-
